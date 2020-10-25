@@ -1,0 +1,42 @@
+﻿Pseudocode
+Problem 2: 
+Function to get widget, fun_get_up(widget)
+If widget == A
+up = 10.00
+Else:
+up = 20.00
+return up
+Widget = Enter widget (A or B)
+Enter the quantity order = qty
+up = fun_get_up(widget)
+Ext_price = float(qty) x float(up)
+
+
+Output 
+print(“Unit price: $”, up)
+print(“Extended price: $”, ext_price)
+------------------------------------------------------------------------------------------------------------
+Problem 3: 
+Get last name, name
+Get hours worked, hours_worked
+Get rate, rate
+Function calculate_pay()
+Pay = hours_worked x rate
+Function calculate_overtime_pay()
+Overtime_pay = (int(hours_worked - 40) x (float(rate) x 1.50) + 40 x float(rate))
+Overtime_pay
+
+
+Output 
+print('Last name:', name)
+print('Hours worked:', hours_worked)
+print('Hourly rate:$', rate)
+display_pay , Gross pay $, pay
+Display_overtime, Gross pay $, overtime_pay
+Def main()
+If float(hours_worked) <= 40:
+                Pay = calculate_pay()
+                display_pay(pay)
+        Else:
+                Overtime_pay = calculate_overtime_pay()
+                display_overtime(overtime_pay)
