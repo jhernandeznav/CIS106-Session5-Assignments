@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="cupca"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-10-25 08:37:49 PM"/>
+        <attribute name="created" value="Y3VwY2E7REVTS1RPUC01QzA1TE05OzIwMjAtMTAtMjU7MDc6NTA6MTkgUE07MjgxNg=="/>
+        <attribute name="edited" value="Y3VwY2E7REVTS1RPUC01QzA1TE05OzIwMjAtMTAtMjU7MDg6Mzc6NDkgUE07MTsyOTMz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="qty" type="Real" array="False" size=""/>
+            <declare name="up" type="Real" array="False" size=""/>
+            <declare name="ep" type="Real" array="False" size=""/>
+            <declare name="total" type="Real" array="False" size=""/>
+            <declare name="sp" type="Real" array="False" size=""/>
+            <declare name="tax" type="Real" array="False" size=""/>
+            <output expression="&quot;Enter quantity ordered&quot;" newline="True"/>
+            <input variable="qty"/>
+            <output expression="&quot;Enter unit price&quot;" newline="True"/>
+            <input variable="up"/>
+            <assign variable="ep" expression="computeep(qty, up)"/>
+            <assign variable="tax" expression="ep * 0.07"/>
+            <if expression="ep &gt; 100">
+                <then>
+                    <assign variable="sp" expression="0.00"/>
+                </then>
+                <else>
+                    <assign variable="sp" expression="ep * 0.10"/>
+                </else>
+            </if>
+            <assign variable="total" expression="ep + sp + tax"/>
+            <output expression="&quot;Quantity Ordered: &quot; &amp; qty" newline="True"/>
+            <output expression="&quot;Unit Price: $&quot; &amp; up" newline="True"/>
+            <output expression="&quot;Extended Price: $&quot; &amp; ep" newline="True"/>
+            <output expression="&quot;Tax Amount: $&quot; % tax" newline="True"/>
+            <output expression="&quot;Shipping: $&quot; &amp; sp" newline="True"/>
+            <output expression="&quot;Total Order: $&quot; &amp; total" newline="True"/>
+        </body>
+    </function>
+    <function name="computeep" type="Real" variable="ep">
+        <parameters>
+            <parameter name="qty" type="Real" array="False"/>
+            <parameter name="up" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="ep" type="Real" array="False" size=""/>
+            <assign variable="ep" expression="qty * up"/>
+        </body>
+    </function>
+</flowgorithm>
